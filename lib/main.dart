@@ -4,45 +4,37 @@ void main() {
   runApp(MaterialApp(
     home: Scaffold(
       appBar: AppBar(
-        actions: [
-          IconButton(
-            icon: const Icon(Icons.home),
-            onPressed: () {
-              debugPrint('home!');
-            },
-          ),
-          IconButton(
-            icon: const Icon(Icons.play_arrow),
-            onPressed: () {
-              debugPrint('play!');
-            },
-          ),
-        ],
-        centerTitle: true,
-        title: const Text('This is AppBar'),
+        title: Text('Study to Container'),
       ),
-      body: const TestWidget(),
-      floatingActionButton: FloatingActionButton(
-        child: const Icon(Icons.bug_report),
-        onPressed: () {
-          debugPrint('FAB!');
-        },
-      ),
+      body: CustomContainer(),
     ),
   ));
-  debugPrint('hi');
 }
 
-class TestWidget extends StatelessWidget {
-  const TestWidget({super.key});
+class CustomContainer extends StatelessWidget {
+  const CustomContainer({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return const SafeArea(
-      child: Center(
-        child: Text(
-          'Hello, Flutter!',
-          style: TextStyle(color: Colors.black, fontSize: 40),
+    return Center(
+      child: Container(
+        width: 300,
+        height: 300,
+        padding: EdgeInsets.fromLTRB(10, 12, 10, 12),
+        decoration: BoxDecoration(
+          color: Color(0xFF81DA6C),
+          border: Border.all(color: Colors.red, width: 5, style: BorderStyle.solid),
+          borderRadius: BorderRadius.circular(150),
+          boxShadow: [
+            BoxShadow(color: Colors.black.withOpacity(0.3), offset: Offset(6, 6), blurRadius: 10, spreadRadius: 10),
+            BoxShadow(color: Colors.blue.withOpacity(0.3), offset: Offset(-6, -6), blurRadius: 10, spreadRadius: 10),
+          ]
+        ),
+        child: Center(
+          child: Container(
+            color: Colors.yellow,
+            child: Text('Hello, Container!'),
+          ),
         ),
       ),
     );
