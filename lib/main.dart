@@ -18,9 +18,62 @@ class Body extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Container(color: Colors.red, height: 300,),
-        Flexible(flex: 1, child: Container(color: Colors.yellow, height: 20,)),
-        Expanded(child: Container(color: Colors.blue, height: 300,)),
+        Container(
+          color: Colors.red,
+          width: 50,
+          height: 50,
+          margin: const EdgeInsets.symmetric(vertical: 8),
+        ),
+        Expanded(
+          child: Container(
+            color: Colors.red,
+            width: 50,
+            height: 50,
+            margin: const EdgeInsets.symmetric(vertical: 8),
+            child: SingleChildScrollView(child: Column(
+              children: [
+                Container(color: Colors.blue, width: 20, height: 20, margin: const EdgeInsets.symmetric(vertical: 8),),
+                Container(color: Colors.blue, width: 20, height: 20, margin: const EdgeInsets.symmetric(vertical: 8),),
+                Container(color: Colors.blue, width: 20, height: 20, margin: const EdgeInsets.symmetric(vertical: 8),),
+                Container(color: Colors.blue, width: 20, height: 20, margin: const EdgeInsets.symmetric(vertical: 8),),
+                Container(color: Colors.blue, width: 20, height: 20, margin: const EdgeInsets.symmetric(vertical: 8),),
+                Container(color: Colors.blue, width: 20, height: 20, margin: const EdgeInsets.symmetric(vertical: 8),),
+                Container(color: Colors.blue, width: 20, height: 20, margin: const EdgeInsets.symmetric(vertical: 8),),
+                Container(color: Colors.blue, width: 20, height: 20, margin: const EdgeInsets.symmetric(vertical: 8),),
+                Container(color: Colors.blue, width: 20, height: 20, margin: const EdgeInsets.symmetric(vertical: 8),),
+                Container(color: Colors.blue, width: 20, height: 20, margin: const EdgeInsets.symmetric(vertical: 8),),
+                Container(color: Colors.blue, width: 20, height: 20, margin: const EdgeInsets.symmetric(vertical: 8),),
+                Container(color: Colors.blue, width: 20, height: 20, margin: const EdgeInsets.symmetric(vertical: 8),),
+                Container(color: Colors.blue, width: 20, height: 20, margin: const EdgeInsets.symmetric(vertical: 8),),
+                Container(color: Colors.blue, width: 20, height: 20, margin: const EdgeInsets.symmetric(vertical: 8),),
+              ],
+            )),
+          ),
+        ),
+        Container(
+          color: Colors.red,
+          width: 50,
+          height: 50,
+          margin: const EdgeInsets.symmetric(vertical: 8),
+        ),
+        Container(
+          color: Colors.red,
+          width: 50,
+          height: 50,
+          margin: const EdgeInsets.symmetric(vertical: 8),
+        ),
+        Container(
+          color: Colors.red,
+          width: 50,
+          height: 50,
+          margin: const EdgeInsets.symmetric(vertical: 8),
+        ),
+        Container(
+          color: Colors.red,
+          width: 50,
+          height: 50,
+          margin: const EdgeInsets.symmetric(vertical: 8),
+        ),
       ],
     );
   }
