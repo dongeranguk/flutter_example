@@ -2,8 +2,11 @@ import 'package:flutter/material.dart';
 
 void main() {
   runApp(
-    const MaterialApp(
-      home: Scaffold(body: Body()),
+    MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(title: const Text('Widget을 비율로 배치하기')),
+        body: const Body(),
+      ),
     ),
   );
 }
@@ -13,6 +16,13 @@ class Body extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Column(
+      children: [
+        Flexible(flex: 1, child: Container(color: Colors.red)),
+        Flexible(flex: 2, child: Container(color: Colors.blue)),
+        Flexible(flex: 3, child: Container(color: Colors.green)),
+        Flexible(flex: 4, child: Container(color: Colors.yellow)),
+      ],
+    );
   }
 }
