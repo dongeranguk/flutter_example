@@ -2,38 +2,43 @@ import 'package:flutter/material.dart';
 
 void main() {
   runApp(
-    MaterialApp(
-      home: Scaffold(
-        appBar: AppBar(title: const Text('Widget을 겹겹이 쌓아 배치하기')),
-        body: const Body(),
+    const MaterialApp(
+      home: SafeArea(
+        child: Scaffold(
+          body: ConstraintWidget(),
+        ),
       ),
     ),
   );
 }
 
-class Body extends StatelessWidget {
-  const Body({super.key});
+class ConstraintWidget extends StatelessWidget {
+  const ConstraintWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Stack(children: [
-      Align(alignment: Alignment.topCenter,
-          child: Container(width: 100, height: 400, color: Colors.purple,)),
-      Align(
-        alignment: Alignment.center,
-        child: Container(width: 270,
-          height: 270,
-          decoration: const BoxDecoration(color: Color(0xFFC7AB29),
-            borderRadius: BorderRadius.all(Radius.elliptical(300, 140))),),
-      ),
-      Center(
-        child: Container(width: 280,
-            height: 280,
-            decoration: BoxDecoration(color: Color(0xFFE5C52A),
-              borderRadius: BorderRadius.circular(150),)),
-      ),
-      const Positioned(right: 10, bottom: 10, child: Text('항저우 아시안게임')),
-    ],
+    return Column(
+      children: [
+        Container(
+          color: Colors.blue,
+          width: 300,
+          height: 300,
+          child: Align(
+            alignment: Alignment.center,
+            child: Container(
+              color: Colors.red,
+              width: 200,
+              height: 200,
+            ),
+          ),
+        ),
+        Row(
+          children: [
+            Expanded(child: Container(color: Colors.yellow, child: Text('Hello, Flutter! Hello, Flutter! Hello, Flutter! Hello, Flutter! Hello, Flutter! Hello, Flutter! Hello, Flutter! Hello, Flutter! Hello, Flutter! Hello, Flutter! Hello, Flutter! '))),
+            Expanded(child: Container(color: Colors.green, child: Text('Hello, Flutter!')))
+          ],
+        ),
+      ],
     );
   }
 }
