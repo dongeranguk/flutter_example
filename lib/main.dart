@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 
+const String assetsImagePath = "assets/images";
+const String lakeImage = "$assetsImagePath/lake.jpg";
+
 void main() {
   runApp(MaterialApp(
     home: Scaffold(
@@ -15,7 +18,7 @@ class Body extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Image.asset(lakeImage);
 
   }
 }
