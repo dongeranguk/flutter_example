@@ -1,24 +1,25 @@
 import 'package:flutter/material.dart';
 
-const String assetsImagePath = "assets/images";
-const String lakeImage = "$assetsImagePath/lake.jpg";
-
 void main() {
   runApp(MaterialApp(
     home: Scaffold(
-      appBar: AppBar(title: const Text('Flutter에서 로컬 데이터 활용하기')),
-      body: const Body(),
-    ),
+        appBar: AppBar(title: const Text('Flutter에서 화면 이동하기')),
+    body: const HomeWidget()),
   ));
 }
 
-class Body extends StatelessWidget {
+class HomeWidget extends StatefulWidget {
 
-  const Body({super.key});
+  const HomeWidget({super.key});
+
+  @override
+  State<HomeWidget> createState() => _HomeWidgetState();
+}
+
+class _HomeWidgetState extends State<HomeWidget> {
 
   @override
   Widget build(BuildContext context) {
-    return Image.asset(lakeImage);
-
+    return const Placeholder();
   }
 }
