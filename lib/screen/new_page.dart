@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class NewPage extends StatelessWidget {
   const NewPage({super.key});
@@ -7,19 +8,18 @@ class NewPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Wellcome to New page'),
+        title: const Text('Welcome to New page'),
       ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             TextButton(
-              onPressed: () => Navigator.pop(context),
+              onPressed: () => context.pop(),
               child: const Text('Go to Back'),
             ),
             TextButton(
-                onPressed: () => Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => const NewPage2())),
+                onPressed: () => context.pushNamed('new2'),
                 child: const Text('Go to Page2')),
           ],
         ),
@@ -34,15 +34,14 @@ class NewPage2 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(title: const Text('Wellcome to New Page2')),
+        appBar: AppBar(title: const Text('Welcome to New Page2')),
         body: Center(
           child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
             TextButton(
-                onPressed: () => Navigator.pop(context),
+                onPressed: () => context.pop(),
                 child: const Text('Go to Back')),
             TextButton(
-                onPressed: () =>
-                    Navigator.popUntil(context, (route) => route.isFirst),
+                onPressed: () => context.goNamed('home'),
                 child: const Text('Go to home')),
           ]),
         ));
