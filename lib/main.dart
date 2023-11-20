@@ -1,32 +1,50 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_example/screen/new_page.dart';
-import 'package:go_router/go_router.dart';
+import 'package:flutter_example/style/theme.dart';
 
 void main() {
-  runApp(MaterialApp.router(
-    routerConfig: GoRouter(initialLocation: '/', routes: [
-      GoRoute(
-          path: '/', name: 'home', builder: (context, _) => const HomeWidget()),
-      GoRoute(
-          path: '/new1', name: 'new1', builder: (context, _) => const NewPage()),
-      GoRoute(
-          path: '/new2', name: 'new2', builder: (context, _) => const NewPage2())
-    ]),
+  runApp(MaterialApp(
+    theme: customTheme,
+    home: const HomeWidget(),
   ));
 }
 
-class HomeWidget extends StatelessWidget {
+class HomeWidget extends StatefulWidget {
   const HomeWidget({super.key});
 
   @override
+  State<HomeWidget> createState() => _HomeWidgetState();
+}
+
+class _HomeWidgetState extends State<HomeWidget> {
+  late int count;
+
+  @override
+  void initState() {
+    super.initState();
+    count = 0;
+  }
+
+  @override
   Widget build(BuildContext context) {
+
+    final textTheme = customTheme.textTheme;
+
     return Scaffold(
-      appBar: AppBar(title: const Text('Flutter에서 화면 이동하기')),
+      appBar: AppBar(title: const Text('Flutter Theme')),
       body: Center(
-        child: TextButton(
-            onPressed: () => context.pushNamed('new1'),
-            child: const Text('Go to Page')),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              'Press Count',
+              style: textTheme.bodyLarge,
+            ),
+            Text('$count'),
+          ],
+        ),
       ),
+      floatingActionButton:
+          FloatingActionButton(onPressed: () => setState(() => count++)),
     );
   }
 }
