@@ -1,50 +1,21 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_example/style/theme.dart';
+
+import 'game/game_body.dart';
 
 void main() {
-  runApp(MaterialApp(
-    theme: customTheme,
-    home: const HomeWidget(),
+  runApp(const MaterialApp(
+    home: RSPApp(),
   ));
 }
 
-class HomeWidget extends StatefulWidget {
-  const HomeWidget({super.key});
-
-  @override
-  State<HomeWidget> createState() => _HomeWidgetState();
-}
-
-class _HomeWidgetState extends State<HomeWidget> {
-  late int count;
-
-  @override
-  void initState() {
-    super.initState();
-    count = 0;
-  }
+class RSPApp extends StatelessWidget {
+  const RSPApp({super.key});
 
   @override
   Widget build(BuildContext context) {
-
-    final textTheme = customTheme.textTheme;
-
     return Scaffold(
-      appBar: AppBar(title: const Text('Flutter Theme')),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text(
-              'Press Count',
-              style: textTheme.bodyLarge,
-            ),
-            Text('$count'),
-          ],
-        ),
-      ),
-      floatingActionButton:
-          FloatingActionButton(onPressed: () => setState(() => count++)),
+      appBar: AppBar(title: const Text('가위 바위 보!')),
+      body: const GameBody(),
     );
   }
 }
