@@ -52,7 +52,7 @@ class _InstaCloneHomeState extends State<InstaCloneHome> {
     TextTheme textTheme = Theme.of(context).textTheme;
 
     return Scaffold(
-      appBar: AppBar(
+      appBar: index == 0 ? AppBar(
           title: Text(
             'Instagram',
             style: textTheme.headlineLarge
@@ -70,7 +70,7 @@ class _InstaCloneHomeState extends State<InstaCloneHome> {
                 print('message!');
               },
             ),
-          ]),
+          ]) : null,
       body: InstaBody(index: index),
       bottomNavigationBar: BottomNavigationBar(items: [
         BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),

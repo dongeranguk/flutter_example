@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_example/insta/screen/s_search_grid.dart';
+import 'package:flutter_example/insta/screen/s_search_text_bar.dart';
 
 class SearchScreen extends StatelessWidget {
 
@@ -6,6 +8,13 @@ class SearchScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(child: Icon(Icons.search, size: 100));
+    return SafeArea(
+      child: SingleChildScrollView(
+        child: Column(children: [
+            SearchTextBar(),
+            SearchGrid(),
+          ],),
+      ),
+    );
   }
 }
